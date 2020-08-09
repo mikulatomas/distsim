@@ -2,6 +2,11 @@
 distsim
 ===========================
 
+.. image:: https://img.shields.io/travis/mikulatomas/distsim.svg
+        :target: https://travis-ci.org/mikulatomas/distsim.svg?branch=master
+
+.. image:: https://codecov.io/gh/mikulatomas/distsim/branch/master/graph/badge.svg
+        :target: https://codecov.io/gh/mikulatomas/distsim
 
 .. image:: https://img.shields.io/github/license/mikulatomas/distsim
         :target: https://opensource.org/licenses/MIT
