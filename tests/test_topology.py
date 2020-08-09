@@ -1,33 +1,51 @@
-# import pytest
-# from distsim import Network
+import pytest
+from distsim import Network
+
+NETWORK_ARCHITECTURES = [
+    {
+        'node1': {
+            'out': {'node2', },
+            'function': (lambda x: x),
+            'args': (1,)},
+        'node2': {
+            'out': {'node1', },
+            'function': (lambda x: x),
+            'args': (2, )},
+    },
+    {
+        'node1': {
+            'out': {'node2', 'node1'},
+            'function': (lambda x: x),
+            'args': (1,)},
+        'node2': {
+            'out': {'node1', 'node2'},
+            'function': (lambda x: x),
+            'args': (2, )},
+    },
+    {
+        'node1': {
+            'out': set(),
+            'function': (lambda x: x),
+            'args': (1,)},
+        'node2': {
+            'out': {'node1'},
+            'function': (lambda x: x),
+            'args': (2, )},
+    }
+]
 
 
-# def test_basic_topology():
+@ pytest.mark.parametrize("architecture", NETWORK_ARCHITECTURES)
+def test_topology(architecture):
 
-#     NETWORK_ARCHITECTURE = {
-#         'node1': {
-#             'out': ('node2', 'node3'),
-#             'function': (lambda x: x),
-#             'args': (1,)},
-#         'node2': {
-#             'out': ('node1',),
-#             'function': (lambda x: x),
-#             'args': (2, )},
-#         'node3': {
-#             'out': ('node1', 'node2'),
-#             'function': (lambda x: x),
-#             'args': (3,)}
-#     }
+    network = Network(architecture)
 
-#     network = Network(NETWORK_ARCHITECTURE)
+    assert architecture.keys() == network.nodes.keys()
 
-#     assert NETWORK_ARCHITECTURE.keys() == network.nodes.keys()
+    for node_name, metadata in architecture.items():
+        assert set(
+            network.nodes[node_name].out_pipes.keys()) == metadata['out']
 
-# for name, node in network.nodes.items():
-#     assert name == node.name
-#     # outpipes
-#     assert TOPOLOGY[name] == tuple(node.out_pipes.keys())
-
-#     topology_in_pipes = [topology_name for topology_name,
-#                          topology_out_pipes in TOPOLOGY.items() if name in topology_out_pipes]
-#     assert tuple(topology_in_pipes) == tuple(node.in_pipes.keys())
+    for node_name, node in network.nodes.items():
+        for in_node_name in node.in_pipes.keys():
+            assert node_name in architecture[in_node_name]['out']

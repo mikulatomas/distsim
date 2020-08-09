@@ -15,7 +15,7 @@ class Node(Process):
             raise ValueError(
                 f"{name} node args must be a tuple not a {type(arguments)}.")
 
-        Process.__init__(self, name=name, target=function, args=arguments)
+        super().__init__(name=name, target=function, args=arguments)
 
         self.in_pipes = {}
         self.out_pipes = {}

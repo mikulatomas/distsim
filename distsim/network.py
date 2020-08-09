@@ -13,19 +13,21 @@ class Network():
             raise ValueError(
                 f"Network architecture must be a dict not a {type(network_architecture)}.")
 
+        # Small waste of performance
+        for node_name, metadata in network_architecture.items():
+            if set(metadata.keys()) != set(self.METADATA):
+                raise ValueError(
+                    f"Node {node_name} in the network architecture must include 'out', 'function' and 'args' values.")
+
         # Build Nodes
         self.nodes = dict(((name, Node(name, network_architecture[name]['function'], network_architecture[name]['args']))
                            for name in network_architecture.keys()))
 
         # Build Pipes
         for source_node, metadata in network_architecture.items():
-            if set(metadata.keys()) != set(self.METADATA):
+            if type(metadata['out']) is not set:
                 raise ValueError(
-                    f"Node {source_node} in the network architecture must include 'out', 'function' and 'args' values.")
-
-            if type(metadata['out']) is not tuple:
-                raise ValueError(
-                    f"{source_node} node 'out' metadata must be a tuple not a {type(metadata['out'])}")
+                    f"{source_node} node 'out' metadata must be a set not a {type(metadata['out'])}")
 
             for target_node in metadata['out']:
                 if target_node not in network_architecture.keys():
