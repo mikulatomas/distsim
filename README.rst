@@ -17,11 +17,12 @@ Simple simulator of distributed system.
 
 Installation
 ------------
-Install package via ``pip``:
 
 .. code:: bash
 
-        $ pip install distsim
+        $ git clone https://github.com/mikulatomas/distsim
+        $ cd distsim
+        $ pip install -e .
 
 
 Development
