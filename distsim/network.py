@@ -26,8 +26,7 @@ class Network():
         # Build Pipes
         for source_node, metadata in network_architecture.items():
             if type(metadata['out']) is not set:
-                raise ValueError(
-                    f"{source_node} node 'out' metadata must be a set not a {type(metadata['out'])}")
+                continue
 
             for target_node in metadata['out']:
                 if target_node not in network_architecture.keys():

@@ -58,17 +58,3 @@ def test_exception_architecture_not_complete():
 
     assert "in the network architecture must include 'out', 'function' and 'args' values." in str(
         excinfo.value)
-
-
-def test_exception_out_not_set():
-    with pytest.raises(ValueError) as excinfo:
-        NETWORK_ARCHITECTURE = {
-            'node1': {
-                'out': ('node1'),
-                'function': (lambda x: x),
-                'args': (1, )}
-        }
-        Network(NETWORK_ARCHITECTURE, '.')
-
-    assert "node 'out' metadata must be a set not a" in str(
-        excinfo.value)

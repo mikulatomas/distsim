@@ -47,11 +47,10 @@ class Node(Process):
         recieved = False
 
         while not recieved:
-            for name, pipes in self.in_pipes.items():
-                for connection in pipes:
-                    if connection.poll(timeout):
-                        recieved = True
-                        connections_with_msg.append((name, connection))
+            for name, connection in self.in_pipes.items():
+                if connection.poll(timeout):
+                    recieved = True
+                    connections_with_msg.append((name, connection))
 
         name, chosen_connection = random.choice(connections_with_msg)
 
