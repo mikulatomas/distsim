@@ -38,7 +38,7 @@ NETWORK_ARCHITECTURES = [
 @ pytest.mark.parametrize("architecture", NETWORK_ARCHITECTURES)
 def test_topology(architecture):
 
-    network = Network(architecture)
+    network = Network(architecture, '.')
 
     assert architecture.keys() == network.nodes.keys()
 

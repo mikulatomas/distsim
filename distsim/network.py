@@ -8,7 +8,7 @@ class Network():
 
     METADATA = ['out', 'function', 'args']
 
-    def __init__(self, network_architecture):
+    def __init__(self, network_architecture, log_dir):
         if type(network_architecture) is not dict:
             raise ValueError(
                 f"Network architecture must be a dict not a {type(network_architecture)}.")
@@ -20,7 +20,7 @@ class Network():
                     f"Node {node_name} in the network architecture must include 'out', 'function' and 'args' values.")
 
         # Build Nodes
-        self.nodes = dict(((name, Node(name, network_architecture[name]['function'], network_architecture[name]['args']))
+        self.nodes = dict(((name, Node(name, network_architecture[name]['function'], network_architecture[name]['args'], log_dir))
                            for name in network_architecture.keys()))
 
         # Build Pipes
@@ -40,20 +40,20 @@ class Network():
 
     def start(self):
         """Starts all nodes in the network"""
-        for node in self.nodes:
+        for name, node in self.nodes.items():
             node.start()
 
     def terminate(self):
         """Terminate all nodes in the network"""
-        for node in self.nodes:
+        for node, node in self.nodes.items():
             node.terminate()
 
     def kill(self):
         """Kill all nodes in the network"""
-        for node in self.nodes:
+        for node, node in self.nodes.items():
             node.kill()
 
     def join(self):
         """Join all nodes in the network"""
-        for node in self.nodes:
+        for node, node in self.nodes.items():
             node.join()
