@@ -28,7 +28,7 @@ def node_code():
     logger.info(f"Shutting down.")
 
 
-# defing network architecture
+# define network architecture
 NETWORK_ARCHITECTURE = {
     'node1': {
         'out': {'node2', },
