@@ -1,0 +1,20 @@
+2020-10-28 16:52:52,885 INFO node9: Starting node.
+2020-10-28 16:52:52,885 INFO node9: Sending msg: Msg from node node9
+2020-10-28 16:52:52,885 INFO node9: Sending msg: Msg from node node9
+2020-10-28 16:52:52,885 INFO node9: Sending msg: Msg from node node9
+2020-10-28 16:52:52,886 INFO node9: Recieved msg: Msg from node node0
+2020-10-28 16:52:52,886 INFO node9: Sending msg: Msg from node node9
+2020-10-28 16:52:52,886 INFO node9: Recieved msg: Msg from node node1
+2020-10-28 16:52:52,886 INFO node9: Recieved msg: Msg from node node2
+2020-10-28 16:52:52,886 INFO node9: Sending msg: Msg from node node9
+2020-10-28 16:52:52,886 INFO node9: Recieved msg: Msg from node node3
+2020-10-28 16:52:52,886 INFO node9: Sending msg: Msg from node node9
+2020-10-28 16:52:52,886 INFO node9: Sending msg: Msg from node node9
+2020-10-28 16:52:52,886 INFO node9: Recieved msg: Msg from node node4
+2020-10-28 16:52:52,886 INFO node9: Sending msg: Msg from node node9
+2020-10-28 16:52:52,886 INFO node9: Sending msg: Msg from node node9
+2020-10-28 16:52:52,886 INFO node9: Recieved msg: Msg from node node5
+2020-10-28 16:52:52,887 INFO node9: Recieved msg: Msg from node node6
+2020-10-28 16:52:52,887 INFO node9: Recieved msg: Msg from node node7
+2020-10-28 16:52:52,887 INFO node9: Recieved msg: Msg from node node8
+2020-10-28 16:52:52,887 INFO node9: Shutting down.
