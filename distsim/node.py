@@ -41,20 +41,25 @@ class Node(Process):
     def add_out_pipe(self, node_id, pipe):
         self.out_pipes[node_id] = pipe
 
-    def recv_any(self, timeout=0):
+    def recv_any(self, timeout=0, blocking=True):
         connections_with_msg = []
 
-        recieved = False
+        wait_for_message = True
 
-        while not recieved:
+        while wait_for_message:
             for name, connection in self.in_pipes.items():
                 if connection.poll(timeout):
-                    recieved = True
+                    wait_for_message = False
                     connections_with_msg.append((name, connection))
 
-        name, chosen_connection = random.choice(connections_with_msg)
+            if not blocking:
+                wait_for_message = False
 
-        return chosen_connection.recv(), name
+        if connections_with_msg:
+            name, chosen_connection = random.choice(connections_with_msg)
+            return chosen_connection.recv(), name
+        else:
+            return None, None
 
     def recv_from(self, name):
         connection = self.in_pipes[name]
