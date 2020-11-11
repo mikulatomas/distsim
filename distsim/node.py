@@ -61,6 +61,14 @@ class Node(Process):
         else:
             return None, None
 
+    def poll_from(self, name, timeout):
+        """
+        If timeout is not specified then it will return immediately. If timeout is a number then this specifies the maximum time in seconds to block. If timeout is None then an infinite timeout is used.
+        """
+        connection = self.in_pipes[name]
+
+        return connection.poll(timeout)
+
     def recv_from(self, name):
         connection = self.in_pipes[name]
 
