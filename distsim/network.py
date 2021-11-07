@@ -5,16 +5,24 @@ from multiprocessing import Pipe
 
 import distsim
 
-from .node import Node
-
 
 class Network:
     def __init__(
         self,
-        nodes: typing.Collection["distsim.Node"],
-        links: typing.Collection["distsim.Link"] = [],
+        nodes: typing.Collection['distsim.Node'],
+        links: typing.Collection['distsim.Link'] = [],
         log_dir: pathlib.Path = pathlib.Path.cwd()
     ) -> None:
+        """Represents distributed network.
+
+        Args:
+            nodes (typing.Collection['distsim.Node']): collection of nodes.
+            links (typing.Collection['distsim.Link'], optional): collection of links between nodes. Defaults to [].
+            log_dir (pathlib.Path, optional): root directory where logs will be placed. Defaults to pathlib.Path.cwd().
+
+        Raises:
+            ValueError: When links have invalid node names.
+        """
         self.nodes = dict(((node.name, node) for node in nodes))
 
         for node in self.nodes.values():
