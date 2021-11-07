@@ -1,28 +1,25 @@
-import time
-import pathlib
 import threading
+
 from multiprocessing import current_process
 
-from distsim import Network
+from distsim import Network, NodeDefinition
 
 
 def node_code():
-    # get current node object
     node = current_process()
 
-    # get logger
-    logger = node.get_logger()
+    logger = node.init_logger()
 
     logger.info(f"Starting node.")
 
     def outputs(node, logger):
-        for node_name in node.out_pipes.keys():
+        for node_name in node.neighbors:
             logger.info(f"Sending msg: Msg from node {node.name}")
             node.send_to(node_name, f"Msg from node {node.name}")
 
     def inputs(node, logger):
-        for node_name in node.in_pipes:
-            msg = node.recv_from(node_name)
+        for node_name in node.neighbors:
+            msg, _ = node.recv_from(node_name)
             logger.info(f"Recieved msg: {msg}")
 
     out_msg = threading.Thread(target=outputs, args=(node, logger))
@@ -37,27 +34,16 @@ def node_code():
     logger.info(f"Shutting down.")
 
 
-# define network architecture
-NETWORK_ARCHITECTURE = {}
-number_of_nodes = 10
-
-for i in range(number_of_nodes):
-    # generate output pipes
-    out = []
-    for j in range(number_of_nodes):
-        if i != j:
-            out.append(f"node{j}")
-
-    NETWORK_ARCHITECTURE[f"node{i}"] = {
-        'out': set(out),
-        'function': node_code,
-        'args': ()
-    }
-
-# run network
 if __name__ == "__main__":
-    network = Network(NETWORK_ARCHITECTURE,
-                      log_dir=pathlib.Path(__file__).parent.absolute())
+    number_of_nodes = 10
+    network_topology = []
+
+    for i in range(number_of_nodes):
+        connections = [f"node{j}" for j in range(number_of_nodes) if i != j]
+
+        network_topology.append(NodeDefinition(f"node{i}", node_code, connections=connections))
+
+    network = Network(network_topology)
 
     network.start()
     network.join()

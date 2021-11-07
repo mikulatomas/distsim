@@ -1,58 +1,57 @@
+import typing
+import pathlib
+
 from multiprocessing import Pipe
+
+import distsim
 
 from .node import Node
 
 
-class Network():
-    """Represents distributed network"""
+class Network:
+    def __init__(
+        self, topology: typing.Collection["distsim.NodeDefinition"], log_dir: pathlib.Path = pathlib.Path.cwd()
+    ) -> None:
+        self.nodes = {}
 
-    METADATA = ['out', 'function', 'args']
+        for node_definition in topology:
+            node = Node.from_definition(node_definition, log_dir)
+            self.nodes[node.name] = node
 
-    def __init__(self, network_architecture, log_dir):
-        if type(network_architecture) is not dict:
-            raise ValueError(
-                f"Network architecture must be a dict not a {type(network_architecture)}.")
-
-        # Small waste of performance
-        for node_name, metadata in network_architecture.items():
-            if set(metadata.keys()) != set(self.METADATA):
-                raise ValueError(
-                    f"Node {node_name} in the network architecture must include 'out', 'function' and 'args' values.")
-
-        # Build Nodes
-        self.nodes = dict(((name, Node(name, network_architecture[name]['function'], network_architecture[name]['args'], log_dir))
-                           for name in network_architecture.keys()))
-
-        # Build Pipes
-        for source_node, metadata in network_architecture.items():
-            if type(metadata['out']) is not set:
-                continue
-
-            for target_node in metadata['out']:
-                if target_node not in network_architecture.keys():
+        for node_definition in topology:
+            for neighbor in node_definition.connections:
+                if neighbor not in self.nodes.keys():
                     raise ValueError(
-                        f"Target node {target_node} does not exists.")
+                        f"The {neighbor} is not present in given network topology."
+                    )
 
-                in_pipe, out_pipe = Pipe(duplex=False)
-                self.nodes[source_node].add_out_pipe(target_node, out_pipe)
-                self.nodes[target_node].add_in_pipe(source_node, in_pipe)
+                conn1, conn2 = Pipe()
+
+                self.nodes[node_definition.name].connections[neighbor] = conn1
+                self.nodes[neighbor].connections[node_definition.name] = conn2
+
+    def __repr__(self):
+        return f"{self.__class__.__name__}(nodes={len(self.nodes)})"
+
+    def __str__(self):
+        return self.__repr__
 
     def start(self):
         """Starts all nodes in the network"""
-        for name, node in self.nodes.items():
+        for node in self.nodes.values():
             node.start()
 
     def terminate(self):
         """Terminate all nodes in the network"""
-        for node, node in self.nodes.items():
+        for node in self.nodes.values():
             node.terminate()
 
     def kill(self):
         """Kill all nodes in the network"""
-        for node, node in self.nodes.items():
+        for node in self.nodes.values():
             node.kill()
 
     def join(self):
         """Join all nodes in the network"""
-        for node, node in self.nodes.items():
+        for node in self.nodes.values():
             node.join()

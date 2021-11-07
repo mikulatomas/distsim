@@ -1,4 +1,4 @@
 """Top-level package for distsim."""
 
 from .network import Network
-from .node import Node
+from .node_definition import NodeDefinition
