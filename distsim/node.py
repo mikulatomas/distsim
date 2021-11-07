@@ -5,30 +5,19 @@ import random
 
 from multiprocessing import Process
 
-import distsim
-
 
 class Node(Process):
     def __init__(
         self,
         name: str,
         function: typing.Callable,
-        args: typing.Collection,
-        log_dir: pathlib.PurePath,
+        args: typing.Collection = [],
+        log_dir: pathlib.Path = pathlib.Path.cwd(),
     ) -> None:
         super().__init__(name=name, target=function, args=tuple(args))
 
         self.connections = {}
         self.log_dir = log_dir
-
-    @classmethod
-    def from_definition(cls, node_definition: "distsim.NodeDefinition", log_dir: pathlib.Path):
-        return cls(
-            node_definition.name,
-            node_definition.function,
-            node_definition.args,
-            log_dir,
-        )
 
     @property
     def neighbors(self) -> typing.Tuple:
@@ -47,11 +36,6 @@ class Node(Process):
         logger.setLevel(logging.INFO)
         
         return logger
-
-    # def poll_from(self, name, timeout):
-    #     connections = self.in_pipes[name]
-
-    #     return connections.poll(timeout)
 
     def recv_from(self, name) -> object:
         connection = self.connections[name]

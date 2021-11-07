@@ -1,4 +1,4 @@
-2021-11-07 14:28:11,294 INFO node1: Starting node.
-2021-11-07 14:28:11,294 INFO node1: Sent Msg from node node1 to node2.
-2021-11-07 14:28:11,297 INFO node1: Recv Msg from node node2 from node2.
-2021-11-07 14:28:13,299 INFO node1: Shutting down.
+2021-11-07 16:39:08,660 INFO node1: Starting node.
+2021-11-07 16:39:08,660 INFO node1: Sent Msg from node node1 to node2.
+2021-11-07 16:39:08,663 INFO node1: Recv Msg from node node2 from node2.
+2021-11-07 16:39:10,668 INFO node1: Shutting down.

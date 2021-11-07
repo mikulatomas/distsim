@@ -2,14 +2,12 @@ import time
 
 from multiprocessing import current_process
 
-from distsim import Network, NodeDefinition
+from distsim import Network, Node, Link
 
 
 def spammer_code():
-    # get current node object
     node = current_process()
 
-    # get logger
     logger = node.init_logger()
 
     logger.info(f"Starting node.")
@@ -35,10 +33,12 @@ def victim_code():
     logger.info(f"Shutting down.")
 
 if __name__ == "__main__":
-    spammers = [NodeDefinition(f"spammer{idx}", spammer_code, connections=["victim"]) for idx in range(4)]
-    victim = [NodeDefinition("victim", victim_code)]
+    spammers = [Node(f"spammer{idx}", spammer_code) for idx in range(4)]
+    victim = [Node("victim", victim_code)]
 
-    network = Network(spammers + victim)
+    links = [Link(f"spammer{idx}", "victim") for idx in range(4)]
+
+    network = Network(spammers + victim, links)
 
     network.start()
     network.join()

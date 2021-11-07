@@ -1,20 +1,20 @@
-2021-11-07 14:58:48,717 INFO node3: Starting node.
-2021-11-07 14:58:48,718 INFO node3: Sending msg: Msg from node node3
-2021-11-07 14:58:48,718 INFO node3: Recieved msg: Msg from node node0
-2021-11-07 14:58:48,718 INFO node3: Sending msg: Msg from node node3
-2021-11-07 14:58:48,718 INFO node3: Recieved msg: Msg from node node1
-2021-11-07 14:58:48,718 INFO node3: Sending msg: Msg from node node3
-2021-11-07 14:58:48,718 INFO node3: Recieved msg: Msg from node node2
-2021-11-07 14:58:48,718 INFO node3: Sending msg: Msg from node node3
-2021-11-07 14:58:48,718 INFO node3: Recieved msg: Msg from node node4
-2021-11-07 14:58:48,719 INFO node3: Sending msg: Msg from node node3
-2021-11-07 14:58:48,719 INFO node3: Recieved msg: Msg from node node5
-2021-11-07 14:58:48,719 INFO node3: Sending msg: Msg from node node3
-2021-11-07 14:58:48,719 INFO node3: Recieved msg: Msg from node node6
-2021-11-07 14:58:48,719 INFO node3: Sending msg: Msg from node node3
-2021-11-07 14:58:48,719 INFO node3: Sending msg: Msg from node node3
-2021-11-07 14:58:48,719 INFO node3: Sending msg: Msg from node node3
-2021-11-07 14:58:48,731 INFO node3: Recieved msg: Msg from node node7
-2021-11-07 14:58:48,734 INFO node3: Recieved msg: Msg from node node8
-2021-11-07 14:58:48,745 INFO node3: Recieved msg: Msg from node node9
-2021-11-07 14:58:48,745 INFO node3: Shutting down.
+2021-11-07 16:45:27,489 INFO node3: Starting node.
+2021-11-07 16:45:27,489 INFO node3: Sending msg: Msg from node node3
+2021-11-07 16:45:27,489 INFO node3: Sending msg: Msg from node node3
+2021-11-07 16:45:27,490 INFO node3: Sending msg: Msg from node node3
+2021-11-07 16:45:27,490 INFO node3: Sending msg: Msg from node node3
+2021-11-07 16:45:27,490 INFO node3: Sending msg: Msg from node node3
+2021-11-07 16:45:27,490 INFO node3: Sending msg: Msg from node node3
+2021-11-07 16:45:27,490 INFO node3: Sending msg: Msg from node node3
+2021-11-07 16:45:27,490 INFO node3: Sending msg: Msg from node node3
+2021-11-07 16:45:27,490 INFO node3: Sending msg: Msg from node node3
+2021-11-07 16:45:27,490 INFO node3: Recieved msg: Msg from node node0
+2021-11-07 16:45:27,504 INFO node3: Recieved msg: Msg from node node1
+2021-11-07 16:45:27,504 INFO node3: Recieved msg: Msg from node node2
+2021-11-07 16:45:27,508 INFO node3: Recieved msg: Msg from node node4
+2021-11-07 16:45:27,508 INFO node3: Recieved msg: Msg from node node5
+2021-11-07 16:45:27,525 INFO node3: Recieved msg: Msg from node node6
+2021-11-07 16:45:27,525 INFO node3: Recieved msg: Msg from node node7
+2021-11-07 16:45:27,541 INFO node3: Recieved msg: Msg from node node8
+2021-11-07 16:45:27,541 INFO node3: Recieved msg: Msg from node node9
+2021-11-07 16:45:27,541 INFO node3: Shutting down.

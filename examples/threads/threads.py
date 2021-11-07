@@ -2,7 +2,7 @@ import threading
 
 from multiprocessing import current_process
 
-from distsim import Network, NodeDefinition
+from distsim import Network, Node, Link
 
 
 def node_code():
@@ -36,14 +36,12 @@ def node_code():
 
 if __name__ == "__main__":
     number_of_nodes = 10
-    network_topology = []
 
-    for i in range(number_of_nodes):
-        connections = [f"node{j}" for j in range(number_of_nodes) if i != j]
+    nodes = [Node(f"node{idx}", node_code) for idx in range(number_of_nodes)]
+    # each node will have link to each other node
+    links = [Link(f"node{i}", f"node{j}") for j in range(number_of_nodes) for i in range(number_of_nodes) if i != j]
 
-        network_topology.append(NodeDefinition(f"node{i}", node_code, connections=connections))
-
-    network = Network(network_topology)
+    network = Network(nodes, links)
 
     network.start()
     network.join()

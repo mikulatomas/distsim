@@ -2,7 +2,7 @@ import time
 
 from multiprocessing import current_process
 
-from distsim import Network, NodeDefinition
+from distsim import Network, Node, Link
 
 
 def node_code():
@@ -31,12 +31,16 @@ def node_code():
 
 # run network
 if __name__ == "__main__":
-    network_topology = (
-        NodeDefinition("node1", node_code, connections=["node2"]),
-        NodeDefinition("node2", node_code, connections=["node1"]),
+    nodes = (
+        Node("node1", node_code),
+        Node("node2", node_code)
+        )
+    
+    links = (
+        Link("node1", "node2"),
     )
 
-    network = Network(network_topology)
+    network = Network(nodes, links)
 
     network.start()
     network.join()

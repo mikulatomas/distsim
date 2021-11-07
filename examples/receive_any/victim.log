@@ -1,10 +1,10 @@
-2021-11-07 14:58:03,509 INFO victim: Starting node.
-2021-11-07 14:58:04,510 INFO victim: ('SPAM from spammer0!', 'spammer0')
-2021-11-07 14:58:04,511 INFO victim: ('SPAM from spammer1!', 'spammer1')
-2021-11-07 14:58:04,511 INFO victim: ('SPAM from spammer2!', 'spammer2')
-2021-11-07 14:58:04,512 INFO victim: ('SPAM from spammer3!', 'spammer3')
-2021-11-07 14:58:05,512 INFO victim: ('SPAM from spammer1!', 'spammer1')
-2021-11-07 14:58:05,512 INFO victim: ('SPAM from spammer0!', 'spammer0')
-2021-11-07 14:58:05,516 INFO victim: ('SPAM from spammer2!', 'spammer2')
-2021-11-07 14:58:05,517 INFO victim: ('SPAM from spammer3!', 'spammer3')
-2021-11-07 14:58:05,517 INFO victim: Shutting down.
+2021-11-07 16:41:49,228 INFO victim: Starting node.
+2021-11-07 16:41:50,221 INFO victim: ('SPAM from spammer0!', 'spammer0')
+2021-11-07 16:41:50,223 INFO victim: ('SPAM from spammer3!', 'spammer3')
+2021-11-07 16:41:50,223 INFO victim: ('SPAM from spammer2!', 'spammer2')
+2021-11-07 16:41:50,226 INFO victim: ('SPAM from spammer1!', 'spammer1')
+2021-11-07 16:41:51,226 INFO victim: ('SPAM from spammer0!', 'spammer0')
+2021-11-07 16:41:51,228 INFO victim: ('SPAM from spammer2!', 'spammer2')
+2021-11-07 16:41:51,228 INFO victim: ('SPAM from spammer3!', 'spammer3')
+2021-11-07 16:41:51,231 INFO victim: ('SPAM from spammer1!', 'spammer1')
+2021-11-07 16:41:51,231 INFO victim: Shutting down.

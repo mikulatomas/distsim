@@ -10,25 +10,27 @@ from .node import Node
 
 class Network:
     def __init__(
-        self, topology: typing.Collection["distsim.NodeDefinition"], log_dir: pathlib.Path = pathlib.Path.cwd()
+        self,
+        nodes: typing.Collection["distsim.Node"],
+        links: typing.Collection["distsim.Link"] = [],
+        log_dir: pathlib.Path = pathlib.Path.cwd()
     ) -> None:
-        self.nodes = {}
+        self.nodes = dict(((node.name, node) for node in nodes))
 
-        for node_definition in topology:
-            node = Node.from_definition(node_definition, log_dir)
-            self.nodes[node.name] = node
+        for node in self.nodes.values():
+            node.log_dir = log_dir
 
-        for node_definition in topology:
-            for neighbor in node_definition.connections:
-                if neighbor not in self.nodes.keys():
-                    raise ValueError(
-                        f"The {neighbor} is not present in given network topology."
+        # print(links)
+        for node1, node2 in links:
+            if node1 not in self.nodes or node2 not in self.nodes:
+                raise ValueError(
+                        f"One of the two ends of given link ({node1, node2}) is not valid name of network node."
                     )
 
-                conn1, conn2 = Pipe()
+            conn1, conn2 = Pipe()
 
-                self.nodes[node_definition.name].connections[neighbor] = conn1
-                self.nodes[neighbor].connections[node_definition.name] = conn2
+            self.nodes[node1].connections[node2] = conn1
+            self.nodes[node2].connections[node1] = conn2
 
     def __repr__(self):
         return f"{self.__class__.__name__}(nodes={len(self.nodes)})"
