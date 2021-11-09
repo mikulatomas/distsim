@@ -4,9 +4,7 @@ Simulator of distributed system based on Python `multiprocessing.Process` and `m
 
 ## Installation
 ```bash
-$ git clone https://github.com/mikulatomas/distsim
-$ cd distsim
-$ pip install -e .
+$ pip install distsim
 ```
 
 ## Examples
