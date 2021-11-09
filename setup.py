@@ -2,18 +2,13 @@
 
 """The setup script."""
 
+import pathlib
 from setuptools import setup, find_packages
 
 __author__ = 'Tomáš Mikula'
 __email__ = 'mail@tomasmikula.cz'
-__version__ = '0.2.0'
+__version__ = '0.2.1'
 __license__ = 'MIT license'
-
-with open('README.md') as readme_file:
-    readme = readme_file.read()
-
-with open('HISTORY.md') as history_file:
-    history = history_file.read()
 
 setup(
     author=__author__,
@@ -33,7 +28,7 @@ setup(
     ],
     description="Simulator of distributed system",
     license=__license__,
-    long_description=readme + '\n\n' + history,
+    long_description=pathlib.Path('README.md').read_text(encoding='utf-8'),
     long_description_content_type='text/markdown',
     include_package_data=True,
     keywords='distributed system simulator simple education parallelism',
