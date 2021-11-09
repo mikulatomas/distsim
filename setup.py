@@ -9,10 +9,10 @@ __email__ = 'mail@tomasmikula.cz'
 __version__ = '0.2.0'
 __license__ = 'MIT license'
 
-with open('README.rst') as readme_file:
+with open('README.md') as readme_file:
     readme = readme_file.read()
 
-with open('HISTORY.rst') as history_file:
+with open('HISTORY.md') as history_file:
     history = history_file.read()
 
 setup(
@@ -34,12 +34,11 @@ setup(
     description="Simulator of distributed system",
     license=__license__,
     long_description=readme + '\n\n' + history,
-    long_description_content_type='text/x-rst',
+    long_description_content_type='text/markdown',
     include_package_data=True,
     keywords='distsim',
     name='distsim',
     packages=find_packages(include=['distsim', 'distsim.*']),
-    setup_requires=setup_requirements,
     extras_require={'docs': ['sphinx']},
     url='https://github.com/mikulatomas/distsim',
     version=__version__,
