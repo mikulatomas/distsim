@@ -2,7 +2,7 @@ import time
 
 from multiprocessing import current_process
 
-from distsim import Network, Node, Link, Message
+from distsim import Network, Node, Link
 
 
 def spammer_code():
@@ -12,11 +12,7 @@ def spammer_code():
 
     logger.info(f"Starting node.")
 
-    for i in range(2):
-        time.sleep(1)
-        msg = Message("hidden", f"SPAM from {node.name}!")
-        logger.info(f"Sent {msg}")
-        node.send_to("victim", msg)
+    logger.info(f"Doing nothing.")
 
     logger.info(f"Shutting down.")
 
@@ -29,7 +25,8 @@ def victim_code():
     logger.info(f"Starting node.")
 
     for _ in range(8):
-        logger.info(node.recv_any())
+        msg = node.recv_any(blocking=False)
+        logger.info(msg)
 
     logger.info(f"Shutting down.")
 

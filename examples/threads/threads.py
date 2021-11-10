@@ -2,7 +2,7 @@ import threading
 
 from multiprocessing import current_process
 
-from distsim import Network, Node, Link
+from distsim import Network, Node, Link, Message
 
 
 def node_code():
@@ -14,12 +14,13 @@ def node_code():
 
     def outputs(node, logger):
         for node_name in node.neighbors:
-            logger.info(f"Sending msg: Msg from node {node.name}")
-            node.send_to(node_name, f"Msg from node {node.name}")
+            msg = Message(node.name, f"Msg from node {node.name}")
+            logger.info(f"Sent {msg}")
+            node.send_to(node_name, msg)
 
     def inputs(node, logger):
         for node_name in node.neighbors:
-            msg, _ = node.recv_from(node_name)
+            msg = node.recv_from(node_name)
             logger.info(f"Recieved msg: {msg}")
 
     out_msg = threading.Thread(target=outputs, args=(node, logger))

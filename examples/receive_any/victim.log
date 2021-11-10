@@ -1,10 +1,10 @@
-2021-11-07 16:41:49,228 INFO victim: Starting node.
-2021-11-07 16:41:50,221 INFO victim: ('SPAM from spammer0!', 'spammer0')
-2021-11-07 16:41:50,223 INFO victim: ('SPAM from spammer3!', 'spammer3')
-2021-11-07 16:41:50,223 INFO victim: ('SPAM from spammer2!', 'spammer2')
-2021-11-07 16:41:50,226 INFO victim: ('SPAM from spammer1!', 'spammer1')
-2021-11-07 16:41:51,226 INFO victim: ('SPAM from spammer0!', 'spammer0')
-2021-11-07 16:41:51,228 INFO victim: ('SPAM from spammer2!', 'spammer2')
-2021-11-07 16:41:51,228 INFO victim: ('SPAM from spammer3!', 'spammer3')
-2021-11-07 16:41:51,231 INFO victim: ('SPAM from spammer1!', 'spammer1')
-2021-11-07 16:41:51,231 INFO victim: Shutting down.
+2021-11-10 08:49:12,514 INFO victim: Starting node.
+2021-11-10 08:49:13,510 INFO victim: Message(node_name='hidden', data='SPAM from spammer1!')
+2021-11-10 08:49:13,511 INFO victim: Message(node_name='hidden', data='SPAM from spammer0!')
+2021-11-10 08:49:13,512 INFO victim: Message(node_name='hidden', data='SPAM from spammer3!')
+2021-11-10 08:49:13,512 INFO victim: Message(node_name='hidden', data='SPAM from spammer2!')
+2021-11-10 08:49:14,515 INFO victim: Message(node_name='hidden', data='SPAM from spammer3!')
+2021-11-10 08:49:14,516 INFO victim: Message(node_name='hidden', data='SPAM from spammer2!')
+2021-11-10 08:49:14,516 INFO victim: Message(node_name='hidden', data='SPAM from spammer1!')
+2021-11-10 08:49:14,516 INFO victim: Message(node_name='hidden', data='SPAM from spammer0!')
+2021-11-10 08:49:14,516 INFO victim: Shutting down.

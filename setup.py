@@ -7,7 +7,7 @@ from setuptools import setup, find_packages
 
 __author__ = 'Tomáš Mikula'
 __email__ = 'mail@tomasmikula.cz'
-__version__ = '0.2.1'
+__version__ = '0.3.0'
 __license__ = 'MIT license'
 
 setup(

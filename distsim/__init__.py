@@ -1,5 +1,6 @@
 """Top-level package for distsim."""
 
 from .network import Network
-from .network import Node
+from .node import Node
 from .link import Link
+from .message import Message

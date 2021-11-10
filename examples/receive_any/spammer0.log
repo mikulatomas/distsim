@@ -1,4 +1,4 @@
-2021-11-07 16:41:49,218 INFO spammer0: Starting node.
-2021-11-07 16:41:49,218 INFO spammer0: Spamming victim.
-2021-11-07 16:41:50,221 INFO spammer0: Spamming victim.
-2021-11-07 16:41:51,225 INFO spammer0: Shutting down.
+2021-11-10 08:49:12,506 INFO spammer0: Starting node.
+2021-11-10 08:49:13,510 INFO spammer0: Sent Message(node_name='hidden', data='SPAM from spammer0!')
+2021-11-10 08:49:14,515 INFO spammer0: Sent Message(node_name='hidden', data='SPAM from spammer0!')
+2021-11-10 08:49:14,515 INFO spammer0: Shutting down.

@@ -5,6 +5,8 @@ import random
 
 from multiprocessing import Process
 
+import distsim
+
 
 class Node(Process):
     def __init__(
@@ -55,7 +57,7 @@ class Node(Process):
         
         return logger
 
-    def recv_from(self, name) -> typing.Tuple[object, str]:
+    def recv_from(self, name) -> 'distsim.Message':
         """Receive a message from neighbor with given name.
 
         Blocking till message is received.
@@ -67,9 +69,9 @@ class Node(Process):
             typing.Tuple[object, str]: message and name of the node
         """
         connection = self.connections[name]
-        return connection.recv(), name
+        return connection.recv()
     
-    def recv_any(self, blocking: bool = True) -> typing.Tuple[object, str]:
+    def recv_any(self, blocking: bool = True) -> typing.Optional['distsim.Message']:
         """Receive first avaliable message from neighbors.
 
         Args:
@@ -84,14 +86,17 @@ class Node(Process):
             if not blocking or neighbors_with_msg:
                 break
 
-        return self.recv_from(random.choice(neighbors_with_msg))
+        try:
+            return self.recv_from(random.choice(neighbors_with_msg))
+        except IndexError:
+            return None
 
-    def send_to(self, name: str, msg: object) -> None:
+    def send_to(self, name: str, msg: 'distsim.Message') -> None:
         """Send message to neighbor with given name.
 
         Args:
             name (str): name of the neighbor
-            msg (object): message
+            msg (distsim.Message): message
         """
         connections = self.connections[name]
         connections.send(msg)

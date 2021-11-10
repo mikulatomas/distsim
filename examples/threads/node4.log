@@ -1,20 +1,20 @@
-2021-11-07 16:45:27,507 INFO node4: Starting node.
-2021-11-07 16:45:27,507 INFO node4: Sending msg: Msg from node node4
-2021-11-07 16:45:27,508 INFO node4: Sending msg: Msg from node node4
-2021-11-07 16:45:27,508 INFO node4: Recieved msg: Msg from node node0
-2021-11-07 16:45:27,508 INFO node4: Sending msg: Msg from node node4
-2021-11-07 16:45:27,508 INFO node4: Recieved msg: Msg from node node1
-2021-11-07 16:45:27,508 INFO node4: Sending msg: Msg from node node4
-2021-11-07 16:45:27,508 INFO node4: Recieved msg: Msg from node node2
-2021-11-07 16:45:27,508 INFO node4: Sending msg: Msg from node node4
-2021-11-07 16:45:27,508 INFO node4: Recieved msg: Msg from node node3
-2021-11-07 16:45:27,508 INFO node4: Sending msg: Msg from node node4
-2021-11-07 16:45:27,508 INFO node4: Recieved msg: Msg from node node5
-2021-11-07 16:45:27,509 INFO node4: Sending msg: Msg from node node4
-2021-11-07 16:45:27,509 INFO node4: Sending msg: Msg from node node4
-2021-11-07 16:45:27,509 INFO node4: Sending msg: Msg from node node4
-2021-11-07 16:45:27,525 INFO node4: Recieved msg: Msg from node node6
-2021-11-07 16:45:27,525 INFO node4: Recieved msg: Msg from node node7
-2021-11-07 16:45:27,541 INFO node4: Recieved msg: Msg from node node8
-2021-11-07 16:45:27,541 INFO node4: Recieved msg: Msg from node node9
-2021-11-07 16:45:27,541 INFO node4: Shutting down.
+2021-11-10 08:51:23,614 INFO node4: Starting node.
+2021-11-10 08:51:23,615 INFO node4: Sent Message(node_name='node4', data='Msg from node node4')
+2021-11-10 08:51:23,615 INFO node4: Sent Message(node_name='node4', data='Msg from node node4')
+2021-11-10 08:51:23,615 INFO node4: Recieved msg: Message(node_name='node0', data='Msg from node node0')
+2021-11-10 08:51:23,616 INFO node4: Sent Message(node_name='node4', data='Msg from node node4')
+2021-11-10 08:51:23,616 INFO node4: Sent Message(node_name='node4', data='Msg from node node4')
+2021-11-10 08:51:23,616 INFO node4: Recieved msg: Message(node_name='node1', data='Msg from node node1')
+2021-11-10 08:51:23,616 INFO node4: Sent Message(node_name='node4', data='Msg from node node4')
+2021-11-10 08:51:23,616 INFO node4: Recieved msg: Message(node_name='node2', data='Msg from node node2')
+2021-11-10 08:51:23,616 INFO node4: Sent Message(node_name='node4', data='Msg from node node4')
+2021-11-10 08:51:23,617 INFO node4: Recieved msg: Message(node_name='node3', data='Msg from node node3')
+2021-11-10 08:51:23,617 INFO node4: Sent Message(node_name='node4', data='Msg from node node4')
+2021-11-10 08:51:23,617 INFO node4: Sent Message(node_name='node4', data='Msg from node node4')
+2021-11-10 08:51:23,617 INFO node4: Sent Message(node_name='node4', data='Msg from node node4')
+2021-11-10 08:51:23,629 INFO node4: Recieved msg: Message(node_name='node5', data='Msg from node node5')
+2021-11-10 08:51:23,629 INFO node4: Recieved msg: Message(node_name='node6', data='Msg from node node6')
+2021-11-10 08:51:23,648 INFO node4: Recieved msg: Message(node_name='node7', data='Msg from node node7')
+2021-11-10 08:51:23,653 INFO node4: Recieved msg: Message(node_name='node8', data='Msg from node node8')
+2021-11-10 08:51:23,662 INFO node4: Recieved msg: Message(node_name='node9', data='Msg from node node9')
+2021-11-10 08:51:23,663 INFO node4: Shutting down.

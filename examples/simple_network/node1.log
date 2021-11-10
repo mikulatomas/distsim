@@ -1,4 +1,4 @@
-2021-11-07 16:39:08,660 INFO node1: Starting node.
-2021-11-07 16:39:08,660 INFO node1: Sent Msg from node node1 to node2.
-2021-11-07 16:39:08,663 INFO node1: Recv Msg from node node2 from node2.
-2021-11-07 16:39:10,668 INFO node1: Shutting down.
+2021-11-10 08:47:36,323 INFO node1: Starting node.
+2021-11-10 08:47:36,323 INFO node1: Sent Message(node_name='node1', data='Msg from node node1').
+2021-11-10 08:47:36,324 INFO node1: Recv Message(node_name='node2', data='Msg from node node2').
+2021-11-10 08:47:38,329 INFO node1: Shutting down.
